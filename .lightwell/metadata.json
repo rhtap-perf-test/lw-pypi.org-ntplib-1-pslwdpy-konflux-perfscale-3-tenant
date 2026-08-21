@@ -1,0 +1,85 @@
+{
+  "schema_version": "1",
+  "attestation_level": "unsigned-inventory",
+  "note": "Unsigned SLSA Build Provenance inventory. Signed attestation will be produced by Tekton Chains when this ingestion runs as part of a Konflux PipelineRun (LTWL-5395).",
+  "_type": "https://in-toto.io/Statement/v0.1",
+  "predicateType": "https://slsa.dev/provenance/v1",
+  "subject": [
+    {
+      "name": "ntplib-0.4.0.tar.gz",
+      "digest": {
+        "sha256": "899d8fb5f8c2555213aea95efca02934c7343df6ace9d7628a5176b176906267"
+      }
+    },
+    {
+      "name": "ntplib-0.4.0.tar.gz (rhtl)",
+      "digest": {
+        "sha256": "c639e622867d27867297554d5bd3df0a37ee7ef71a0ced6205dac2b946868fce"
+      }
+    },
+    {
+      "name": "source/",
+      "digest": {
+        "gitTree": "565169d797931d01f1193208cdd6b1fe572913e3"
+      }
+    }
+  ],
+  "predicate": {
+    "buildDefinition": {
+      "buildType": "https://lightwell.example.com/buildTypes/sdist-ingest/v1",
+      "externalParameters": {
+        "package": "ntplib",
+        "canonical_name": "ntplib",
+        "version": "0.4.0",
+        "upstream_registry": "pypi.org"
+      },
+      "resolvedDependencies": [
+        {
+          "name": "ntplib-0.4.0.tar.gz (pypi.org)",
+          "uri": "https://files.pythonhosted.org/packages/b4/14/6b018fb602602d9f6cc7485cbad7c1be3a85d25cea18c233854f05284aed/ntplib-0.4.0.tar.gz",
+          "digest": {
+            "sha256": "899d8fb5f8c2555213aea95efca02934c7343df6ace9d7628a5176b176906267"
+          },
+          "annotations": {
+            "upload_time": "2021-05-28T19:08:54",
+            "size_bytes": 7135
+          }
+        },
+        {
+          "name": "ntplib-0.4.0.tar.gz (rhtl)",
+          "uri": "https://packages.redhat.com/api/pulp-content/public-trusted-libraries/main/ntplib-0.4.0.tar.gz",
+          "digest": {
+            "sha256": "c639e622867d27867297554d5bd3df0a37ee7ef71a0ced6205dac2b946868fce"
+          },
+          "annotations": {
+            "upload_time": "2026-06-29T22:01:22.473880Z",
+            "size_bytes": 6919,
+            "slsa_provenance_url": "https://packages.redhat.com/api/pypi/public-trusted-libraries/main/integrity/ntplib/0.4.0/ntplib-0.4.0.tar.gz/provenance/",
+            "note": "RHTL repackages sdists: epoch timestamps, updated egg-info metadata. Source code identical to PyPI. See slsa_provenance_url for signed build attestation."
+          }
+        }
+      ]
+    },
+    "runDetails": {
+      "builder": {
+        "id": "https://lightwell.example.com/builders/sdist-ingest-script/v1"
+      },
+      "metadata": {
+        "startedOn": "2026-08-21T11:08:48Z",
+        "finishedOn": "2026-08-21T11:08:48Z",
+        "completeness": {
+          "parameters": true,
+          "environment": false,
+          "materials": true
+        }
+      }
+    }
+  },
+  "lightwell_builds": {
+    "repo": "pypi.org-ntplib",
+    "source_registry_used": "rhtl"
+  },
+  "fromager": {
+    "build_extra": []
+  }
+}
